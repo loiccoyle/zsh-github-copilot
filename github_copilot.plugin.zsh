@@ -1,7 +1,22 @@
 typeset -g GH_COPILOT_RESULT_FILE="${GH_COPILOT_RESULT_FILE:-/tmp/zsh_gh_copilot_result}"
-typeset -g RED='\033[0;31m'
-typeset -g GREEN='\033[0;32m'
-typeset -g RESET='\033[0m'
+
+if type tput >/dev/null; then
+	typeset -g RESET="$(tput sgr0)"
+	typeset -g RED="$(tput setaf 1)"
+	typeset -g GREEN="$(tput setaf 2)"
+else
+	typeset -g RESET=""
+	typeset -g RED=""
+	typeset -g GREEN=""
+fi
+
+_echo_exit() {
+	printf "%s%s%s" "$RED" "$@" "$RESET" >&2
+	return 1
+}
+
+type gh >/dev/null || _echo_exit "gh not found."
+gh extension list | grep -q "gh-copilot" || _echo_exit "gh copilot extension not found."
 
 _gh_copilot() {
 	# run gh copilot without interactivity
