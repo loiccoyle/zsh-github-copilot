@@ -1,13 +1,18 @@
-typeset -g GH_COPILOT_RESULT_FILE="${GH_COPILOT_RESULT_FILE:-/tmp/zsh_gh_copilot_result}"
+typeset -g GH_COPILOT_RESULT_FILE
+typeset -g RESET
+typeset -g RED
+typeset -g GREEN
+
+GH_COPILOT_RESULT_FILE="${GH_COPILOT_RESULT_FILE:-/tmp/zsh_gh_copilot_result}"
 
 if type tput >/dev/null; then
-	typeset -g RESET="$(tput sgr0)"
-	typeset -g RED="$(tput setaf 1)"
-	typeset -g GREEN="$(tput setaf 2)"
+	RESET="$(tput sgr0)"
+	RED="$(tput setaf 1)"
+	GREEN="$(tput setaf 2)"
 else
-	typeset -g RESET=""
-	typeset -g RED=""
-	typeset -g GREEN=""
+	RESET=""
+	RED=""
+	GREEN=""
 fi
 
 _echo_exit() {
@@ -41,7 +46,7 @@ _spinner() {
 	tput civis
 	while kill -0 "$pid" 2>/dev/null; do
 		i=$(((i + 1) % ${#spin}))
-		printf "  ${RED}%s${RESET}" ${spin:$i:1}
+		printf "  %s%s%s" "${RED}" ${spin:$i:1} "${RESET}"
 		sleep "$delay"
 		printf "\b\b\b"
 	done
@@ -95,7 +100,7 @@ __trim_string() {
 
 _prompt_msg() {
 	# print a message to the prompt
-	printf "\n${GREEN}%s${RESET}\n\n" "$@"
+	printf "\n%s%s%s\n\n" "$GREEN" "$@" "$RESET"
 	# this isn't great because it might not work with multiline prompts
 	zle reset-prompt
 }
