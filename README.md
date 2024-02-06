@@ -4,7 +4,7 @@
 
 ## ✔️ Setup
 
-Requires the [github cli](https://github.com/cli/cli) with the [copilot extension](https://github.com/github/gh-copilot) installed and configured.
+Requires the [GitHub CLI](https://github.com/cli/cli) with the [Copilot extension](https://github.com/github/gh-copilot) installed and configured.
 
 ## 🚀 Installation
 
@@ -17,6 +17,7 @@ zinit light loiccoyle/zsh-github-copilot
 ## 🧠Usage
 
 Bind the suggest and/or explain widgets:
+
 ```zsh
 bindkey '^o' zsh_gh_copilot_explain
 bindkey '^p' zsh_gh_copilot_suggest
