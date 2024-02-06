@@ -16,11 +16,11 @@ zinit light loiccoyle/zsh-github-copilot
 
 ## 🧠Usage
 
-Bind the suggest and/or explain widgets:
+Bind the **suggest** and/or **explain** widgets:
 
 ```zsh
-bindkey '^o' zsh_gh_copilot_explain
-bindkey '^p' zsh_gh_copilot_suggest
+bindkey '^\' zsh_gh_copilot_explain  # bind Alt+\ to explain
+bindkey '^[\' zsh_gh_copilot_suggest  # bind Ctrl+\ to suggest
 ```
 
 ### Explanations
