@@ -29,3 +29,7 @@ To get command explanations, write out the command in your prompt and hit your k
 ### Suggestions
 
 To get Copilot to suggest a command to fulfill a query, type out the query in your prompt and hit your suggest keybind.
+
+## 🤩 Credit
+
+This plugin draws from [`stefanheule/zsh-llm-suggestions`](https://github.com/stefanheule/zsh-llm-suggestions)
