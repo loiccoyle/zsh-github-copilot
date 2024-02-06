@@ -81,7 +81,7 @@ __trim_string() {
 _prompt_msg() {
 	# print a message to the prompt
 	printf "\n${GREEN}%s${RESET}\n\n" "$@"
-	# this isn't great because it might work with multiline prompts
+	# this isn't great because it might not work with multiline prompts
 	zle reset-prompt
 }
 
