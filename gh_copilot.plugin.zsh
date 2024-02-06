@@ -13,7 +13,9 @@ _spinner() {
 	local spin='⣾⣽⣻⢿⡿⣟⣯⣷'
 
 	cleanup() {
-		kill $pid
+		# shellcheck disable=SC2317
+		kill "$pid"
+		# shellcheck disable=SC2317
 		tput cnorm
 	}
 	trap cleanup SIGINT
@@ -34,12 +36,12 @@ _spinner() {
 
 _gh_copilot_spinner() {
 	# run gh copilot in the background and show a spinner
-	read < <(
-		_gh_copilot "$@" >$GH_COPILOT_RESULT_FILE &
+	read -r < <(
+		_gh_copilot "$@" >"$GH_COPILOT_RESULT_FILE" &
 		echo $!
 	)
-	_spinner $REPLY >&2
-	cat $GH_COPILOT_RESULT_FILE
+	_spinner "$REPLY" >&2
+	cat "$GH_COPILOT_RESULT_FILE"
 }
 
 _gh_copilot_explain() {
@@ -95,6 +97,7 @@ zsh_gh_copilot_suggest() {
 	[ -z "$result" ] && _prompt_msg "No suggestion found" && return
 	# replace the current buffer with the result
 	BUFFER="${result}"
+	# shellcheck disable=SC2034
 	CURSOR=${#BUFFER}
 }
 
