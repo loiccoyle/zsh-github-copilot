@@ -47,10 +47,10 @@ _gh_copilot_explain() {
 	local pattern
 	# the explanation starts with 2 spaces but ignore the header comment
 	# which starts with #
-	pattern='^  [^#]'
+	pattern='^\s*•'
 	result="$(
 		_gh_copilot_spinner explain "$@" |
-			sed -n -e "/${pattern}/p"
+			grep "$pattern"
 	)"
 	__trim_string "$result"
 }
@@ -62,7 +62,7 @@ _gh_copilot_suggest() {
 	pattern='^    '
 	result="$(
 		_gh_copilot_spinner suggest -t shell "$@" |
-			sed -n -e "/${pattern}/p"
+			grep "$pattern"
 	)"
 	__trim_string "$result"
 }
