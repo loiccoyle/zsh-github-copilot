@@ -4,6 +4,7 @@ typeset -g GREEN='\033[0;32m'
 typeset -g RESET='\033[0m'
 
 _gh_copilot() {
+	# run gh copilot without interactivity
 	echo "" | gh copilot "$@" 2>/dev/null
 }
 
@@ -47,8 +48,7 @@ _gh_copilot_spinner() {
 _gh_copilot_explain() {
 	local result
 	local pattern
-	# the explanation starts with 2 spaces but ignore the header comment
-	# which starts with #
+	# the explanation starts with a bullet point
 	pattern='^\s*•'
 	result="$(
 		_gh_copilot_spinner explain "$@" |
