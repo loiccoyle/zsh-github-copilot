@@ -1,4 +1,4 @@
-# zsh-gh-copilot
+# zsh-github-copilot
 
 > A zsh plugin for GitHub Copilot
 
