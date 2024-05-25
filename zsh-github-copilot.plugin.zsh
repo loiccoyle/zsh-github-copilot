@@ -45,7 +45,6 @@ _spinner() {
     i=0
     # while the copilot process is running
     # go to end of the line and spin
-    tput hpa $((${#BUFFER} + 1))
     tput civis
     while kill -0 "$pid" 2>/dev/null; do
         i=$(((i + 1) % ${#spin}))
@@ -112,12 +111,14 @@ zsh_gh_copilot_suggest() {
     # based on https://github.com/stefanheule/zsh-llm-suggestions/blob/master/zsh-llm-suggestions.zsh#L65
     # check if the buffer is empty
     [ -z "$BUFFER" ] && return
+    zle end-of-line
 
     local result
     # place the query in history
     print -s "$BUFFER"
     result="$(_gh_copilot_suggest "$BUFFER")"
     [ -z "$result" ] && _prompt_msg "No suggestion found" && return
+    zle reset-prompt
     # replace the current buffer with the result
     BUFFER="${result}"
     # shellcheck disable=SC2034
@@ -128,6 +129,7 @@ zsh_gh_copilot_explain() {
     # based on https://github.com/stefanheule/zsh-llm-suggestions/blob/master/zsh-llm-suggestions.zsh#L71
     # check if the buffer is empty
     [ -z "$BUFFER" ] && return
+    zle end-of-line
 
     local result
     result="$(_gh_copilot_explain "$BUFFER")"
