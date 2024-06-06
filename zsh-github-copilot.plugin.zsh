@@ -44,7 +44,6 @@ _spinner() {
 
     i=0
     # while the copilot process is running
-    # go to end of the line and spin
     tput civis
     while kill -0 "$pid" 2>/dev/null; do
         i=$(((i + 1) % ${#spin}))
