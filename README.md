@@ -2,7 +2,9 @@
 
 > A `zsh` plugin for GitHub Copilot
 
-![Demo gif](https://i.imgur.com/7C2CYZl.gif)
+<p align="center">
+  <img src="https://i.imgur.com/7C2CYZl.gif" alt="Demo gif">
+</p>
 
 ## ✔️ Setup
 
