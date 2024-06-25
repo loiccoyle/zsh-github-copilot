@@ -1,6 +1,8 @@
 # zsh-github-copilot
 
-> A zsh plugin for GitHub Copilot
+> A `zsh` plugin for GitHub Copilot
+
+![Demo gif](https://i.imgur.com/7C2CYZl.gif)
 
 ## ✔️ Setup
 
@@ -27,7 +29,7 @@ git clone https://github.com/loiccoyle/zsh-github-copilot ${ZSH_CUSTOM:-~/.oh-my
 Add the plugin to the list of plugins for Oh My Zsh to load (inside `~/.zshrc`):
 
 ```zsh
-plugins=( 
+plugins=(
     # other plugins...
     zsh-github-copilot
 )
@@ -40,7 +42,6 @@ Add the following to your `.zshrc`:
 ```zsh
 zinit light loiccoyle/zsh-github-copilot
 ```
-
 
 ### [zplug](https://github.com/zplug/zplug)
 
