@@ -59,7 +59,7 @@ _spinner() {
 _gh_copilot_spinner() {
     # run gh copilot in the background and show a spinner
     read -r < <(
-        _gh_copilot "$@" >"$GH_COPILOT_RESULT_FILE" &
+        _gh_copilot "$@" >|"$GH_COPILOT_RESULT_FILE" &
         echo $!
     )
     _spinner "$REPLY" >&2
