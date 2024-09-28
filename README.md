@@ -65,9 +65,16 @@ zpm load loiccoyle/zsh-github-copilot
 
 Bind the **suggest** and/or **explain** widgets:
 
+### For Linux/Windows:
 ```zsh
 bindkey '^[|' zsh_gh_copilot_explain  # bind Alt+shift+\ to explain
 bindkey '^[\' zsh_gh_copilot_suggest  # bind Alt+\ to suggest
+```
+
+### For Mac:
+```zsh
+bindkey '¿' zsh_gh_copilot_explain  # bind Option+shift+\ to explain
+bindkey '÷' zsh_gh_copilot_suggest  # bind Option+\ to suggest
 ```
 
 ### Explanations
