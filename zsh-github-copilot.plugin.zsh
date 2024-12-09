@@ -20,9 +20,11 @@ _echo_exit() {
     return 1
 }
 
-type tput >/dev/null || _echo_exit "zsh-github-copilot: tput not found."
-type gh >/dev/null || _echo_exit "zsh-github-copilot: gh not found."
-gh extension list | grep -q "gh[- ]copilot" || _echo_exit "zsh-github-copilot: gh copilot extension not found."
+if [[ -z $ZSH_GH_COPILOT_NO_CHECK ]]; then
+    type tput >/dev/null || _echo_exit "zsh-github-copilot: tput not found."
+    type gh >/dev/null || _echo_exit "zsh-github-copilot: gh not found."
+    gh extension list | grep -q "gh[- ]copilot" || _echo_exit "zsh-github-copilot: gh copilot extension not found."
+fi
 
 _gh_copilot() {
     # run gh copilot without interactivity
