@@ -10,6 +10,8 @@
 
 Requires the [GitHub CLI](https://github.com/cli/cli) with the [Copilot extension](https://github.com/github/gh-copilot) installed and configured.
 
+> The plugin will check for the extension and other dependencies at source time, to disable this check, set the `ZSH_GH_COPILOT_NO_CHECK` environment variable to `1`.
+
 ## 🚀 Installation
 
 ### [antigen](https://github.com/zsh-users/antigen)
