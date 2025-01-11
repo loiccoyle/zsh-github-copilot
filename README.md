@@ -77,8 +77,8 @@ bindkey '^[\' zsh_gh_copilot_suggest  # bind Alt+\ to suggest
 ### For Mac
 
 ```zsh
-bindkey '¿' zsh_gh_copilot_explain  # bind Option+shift+\ to explain
-bindkey '÷' zsh_gh_copilot_suggest  # bind Option+\ to suggest
+bindkey '»' zsh_gh_copilot_explain  # bind Option+shift+\ to explain
+bindkey '«' zsh_gh_copilot_suggest  # bind Option+\ to suggest
 ```
 
 ### Explanations
