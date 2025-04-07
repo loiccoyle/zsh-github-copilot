@@ -22,7 +22,7 @@ Requires the [GitHub CLI](https://github.com/cli/cli) with the [Copilot extensio
 Add the following to your `.zshrc`:
 
 ```zsh
-antigen bundle loiccoyle/zsh-github-copilot
+antigen bundle loiccoyle/zsh-github-copilot@main
 ```
 
 ### [oh-my-zsh](http://github.com/robbyrussell/oh-my-zsh)
